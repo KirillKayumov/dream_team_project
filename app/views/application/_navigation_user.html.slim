@@ -1,5 +1,7 @@
 ul.right
   - if user_signed_in?
+    = active_link_to "Write a post", new_post_path, wrap_tag: :li
+    = active_link_to "My blog", user_path(current_user), wrap_tag: :li
     li.has-dropdown
       a.user-dropdown(href="#") = current_user.full_name_with_email
       ul.dropdown
