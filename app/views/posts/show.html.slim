@@ -1,0 +1,13 @@
+article
+  header
+    = post.title
+  section
+    = post.text
+  footer
+    = post.created_at
+
+section
+  = simple_form_for [post, comment] do |f|
+    = f.input :text
+    = f.submit "Send"
+  = render comments

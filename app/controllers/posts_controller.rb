@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   expose(:post, attributes: :post_params)
+  expose(:comments, ancestor: :post) { |default| default.includes(:user) }
+  expose(:comment) { Comment.new }
 
   def new
   end
