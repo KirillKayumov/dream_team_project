@@ -6,6 +6,21 @@ article
   footer
     = post.created_at
 
+  | likes:
+  = positive_reactions_count
+  = simple_form_for Reaction.new do |f|
+    = f.input :reactive_type, as: :hidden, input_html: { value: "Post" }
+    = f.input :reactive_id, as: :hidden, input_html: { value: post.id }
+    = f.input :positive, as: :hidden, input_html: { value: true }
+    = f.submit "Like"
+  | dislikes:
+  = negative_reactions_count
+  = simple_form_for Reaction.new do |f|
+    = f.input :reactive_type, as: :hidden, input_html: { value: "Post" }
+    = f.input :reactive_id, as: :hidden, input_html: { value: post.id }
+    = f.input :positive, as: :hidden, input_html: { value: false }
+    = f.submit "Dislike"
+
 section
   = simple_form_for [post, comment] do |f|
     = f.input :text
