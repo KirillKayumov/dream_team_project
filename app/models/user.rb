@@ -19,6 +19,15 @@ class User < ActiveRecord::Base
     Relationship.create(user_id: id, follower_id: user.id)
   end
 
+  def follower_of?(user)
+    Relationship.where(user_id: user.id, follower_id: id).exists?
+  end
+
+  def remove_follower(user)
+    relationship = Relationship.find_by(user_id: id, follower_id: user.id)
+    relationship.try(:destroy)
+  end
+
   def to_s
     full_name
   end

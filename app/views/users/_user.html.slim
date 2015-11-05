@@ -1,0 +1,12 @@
+section
+  = user.full_name
+
+  - if user_signed_in?
+    - if current_user.follower_of?(user)
+      = form_tag relationship_path, method: :delete do
+        = hidden_field_tag :user_id, user.id
+        = submit_tag "Unfollow"
+    - else
+      = form_tag relationship_path do
+        = hidden_field_tag :user_id, user.id
+        = submit_tag "Follow"

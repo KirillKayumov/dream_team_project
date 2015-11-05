@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :show] do
     resources :comments, only: :create
   end
-  resources :relationships, only: :create
+  resource :relationship, only: [:create, :destroy]
   resources :reactions, only: :create
 end
