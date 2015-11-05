@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   expose(:users)
-  expose(:posts) { current_user.posts.ordered }
+  expose(:user)
+  expose(:posts) { user.posts.ordered }
 
   def index
   end
