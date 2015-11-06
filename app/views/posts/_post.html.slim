@@ -1,0 +1,7 @@
+article
+  header
+    = link_to post.title, post_path(post)
+  section
+    = link_to post.text, post_path(post)
+  footer
+    = post.created_at
