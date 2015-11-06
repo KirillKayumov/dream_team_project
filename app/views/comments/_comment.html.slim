@@ -3,3 +3,18 @@ article
   = comment.user.full_name
   = comment.created_at
   = link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }
+
+  | likes:
+  = comment.reactions.positive.count
+  = simple_form_for Reaction.new do |f|
+    = f.input :reactive_type, as: :hidden, input_html: { value: "Comment" }
+    = f.input :reactive_id, as: :hidden, input_html: { value: comment.id }
+    = f.input :positive, as: :hidden, input_html: { value: true }
+    = f.submit "Like"
+  | dislikes:
+  = comment.reactions.negative.count
+  = simple_form_for Reaction.new do |f|
+    = f.input :reactive_type, as: :hidden, input_html: { value: "Comment" }
+    = f.input :reactive_id, as: :hidden, input_html: { value: comment.id }
+    = f.input :positive, as: :hidden, input_html: { value: false }
+    = f.submit "Dislike"
