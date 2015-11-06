@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :reactions, dependent: :destroy
 
   validates :full_name, presence: true
 
@@ -26,6 +27,10 @@ class User < ActiveRecord::Base
   def remove_follower(user)
     relationship = Relationship.find_by(user_id: id, follower_id: user.id)
     relationship.try(:destroy)
+  end
+
+  def reaction_to(object)
+    reactions.find_by(reactive: object)
   end
 
   def to_s

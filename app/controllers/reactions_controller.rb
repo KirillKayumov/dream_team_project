@@ -3,8 +3,20 @@ class ReactionsController < ApplicationController
 
   def create
     reaction.user = current_user
-    reaction.save
-    redirect_to object
+
+    ActiveRecord::Base.transaction do
+      existing_reaction = current_user.reaction_to(reaction.reactive)
+      existing_reaction.destroy if existing_reaction.present?
+
+      reaction.save!
+    end
+
+    redirect_to redirect_object(reaction.reactive)
+  end
+
+  def destroy
+    reaction.destroy
+    redirect_to redirect_object(reaction.reactive)
   end
 
   private
@@ -13,12 +25,7 @@ class ReactionsController < ApplicationController
     params.require(:reaction).permit(:reactive_id, :reactive_type, :positive)
   end
 
-  def object
-    case params[:reaction][:reactive_type]
-    when "Post"
-      Post.find(params[:reaction][:reactive_id])
-    when "Comment"
-      Comment.find(params[:reaction][:reactive_id]).post
-    end
+  def redirect_object(reactive)
+    reactive.is_a?(Post) ? reactive : reactive.post
   end
 end

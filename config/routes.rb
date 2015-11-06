@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resource :relationship, only: [:create, :destroy]
-  resources :reactions, only: :create
+  resources :reactions, only: [:create, :destroy]
 end

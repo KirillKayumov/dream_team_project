@@ -1,0 +1,5 @@
+= simple_form_for Reaction.new do |f|
+  = f.input :reactive_type, as: :hidden, input_html: { value: object.class.to_s }
+  = f.input :reactive_id, as: :hidden, input_html: { value: object.id }
+  = f.input :positive, as: :hidden, input_html: { value: positive }
+  = f.submit positive ? "Like" : "Dislike"
