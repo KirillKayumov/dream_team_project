@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include PgSearch
+
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable
 
@@ -7,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :reactions, dependent: :destroy
 
   validates :full_name, presence: true
+
+  pg_search_scope :search_by_name, against: :full_name
 
   def followers
     User.where(id: Relationship.where(user_id: id).pluck(:follower_id))

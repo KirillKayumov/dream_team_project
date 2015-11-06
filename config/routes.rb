@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resource :relationship, only: [:create, :destroy]
   resources :reactions, only: [:create, :destroy]
+  resource :search, only: [:show]
 end

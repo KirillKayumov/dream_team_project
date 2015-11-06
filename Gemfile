@@ -38,6 +38,7 @@ gem "responders"
 gem "rollbar"
 gem "seedbank"
 # gem "stackprof"
+gem "pg_search"
 
 group :staging, :production do
   gem "newrelic_rpm"

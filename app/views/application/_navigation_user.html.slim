@@ -1,5 +1,12 @@
 ul.right
   - if user_signed_in?
+    li.has-form
+      = form_tag search_path, method: :get do
+        .row
+          .columns.small-9
+            = text_field_tag :q
+          .columns.small-3
+            = submit_tag "Search"
     = active_link_to "Write a post", new_post_path, wrap_tag: :li
     = active_link_to "My blog", user_path(current_user), wrap_tag: :li
     li.has-dropdown
