@@ -9,8 +9,8 @@ class Post < ActiveRecord::Base
 
   scope :ordered, -> { order(created_at: :desc) }
 
-  pg_search_scope :search_by_content,
-    against: [:title, :text],
+  pg_search_scope :search_by_text,
+    against: :text,
     using: {
       tsearch: {
         prefix: true,
