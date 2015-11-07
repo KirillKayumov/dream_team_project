@@ -19,11 +19,14 @@
             required: false
         = f.input :current_password,
             required: true
+        = f.input :avatar, as: :attachment
+        = f.input :remove_avatar, as: :boolean
 
       .form-actions
         = f.button :submit, "Update"
 
   .medium-6.columns.end
+    = attachment_image_tag(resource, :avatar)
     h6
       b Cancel my account
     p

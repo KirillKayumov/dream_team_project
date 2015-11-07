@@ -5,6 +5,7 @@ class User
       email
       password
       password_confirmation
+      avatar
     )
 
     def sign_up
@@ -12,7 +13,7 @@ class User
     end
 
     def account_update
-      default_params.permit(USER_PARAMS, :current_password)
+      default_params.permit(USER_PARAMS, :current_password, :remove_avatar)
     end
   end
 end

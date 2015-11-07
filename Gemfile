@@ -39,6 +39,9 @@ gem "rollbar"
 gem "seedbank"
 # gem "stackprof"
 gem "pg_search"
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem "refile-s3"
 
 group :staging, :production do
   gem "newrelic_rpm"
