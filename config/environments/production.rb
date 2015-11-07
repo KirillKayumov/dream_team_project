@@ -87,5 +87,5 @@ Rails.application.configure do
 
   # Application specific options
   #
-  config.host = "fs-rails-base.herokuapp.com"
+  config.host = "dream-team-project.herokuapp.com"
 end
