@@ -6,12 +6,12 @@ class CommentsController < ApplicationController
   def create
     comment.user = current_user
     comment.save
-    redirect_to post
+    redirect_to [post.user, post]
   end
 
   def destroy
     comment.destroy
-    redirect_to post
+    redirect_to [post.user, post]
   end
 
   private

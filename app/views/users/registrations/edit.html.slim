@@ -21,6 +21,8 @@
             required: true
         = f.input :avatar, as: :attachment
         = f.input :remove_avatar, as: :boolean
+        = f.input :wallpaper, as: :attachment
+        = f.input :remove_wallpaper, as: :boolean
 
       .form-actions
         = f.button :submit, "Update"

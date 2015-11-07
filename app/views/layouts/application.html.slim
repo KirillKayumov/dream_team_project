@@ -18,16 +18,10 @@ html class="no-js" lang="en"
 
     == analytics_init if GA.tracker
 
-  body
-    #root
-      = render "navigation"
-      = render "messages"
+  = body_tag do
+    = render "navigation"
+    = render "messages"
 
-      = yield
-
-    = render "footer"
-
-    javascript:
-      App.currentUserData = #{raw current_user.to_json};
+    = yield
 
     = javascript_include_tag :application

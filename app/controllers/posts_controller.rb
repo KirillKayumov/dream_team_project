@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_user, only: [:show, :edit]
+
   expose(:post, attributes: :post_params)
   expose(:comments, ancestor: :post) { |default| default.ordered.includes(:user) }
   expose(:comment) { Comment.new }
@@ -24,7 +26,7 @@ class PostsController < ApplicationController
 
   def update
     if post.save
-      redirect_to post
+      redirect_to [post.user, post]
     else
       render :edit
     end
@@ -39,5 +41,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:text)
+  end
+
+  def set_user
+    @user = post.user
   end
 end

@@ -1,5 +1,5 @@
 article
   section
-    = link_to post.text, post_path(post)
+    = link_to post.text, user_post_path(post.user, post)
   footer
     = post.created_at

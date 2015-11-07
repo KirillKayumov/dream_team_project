@@ -11,12 +11,12 @@ class ReactionsController < ApplicationController
       reaction.save!
     end
 
-    redirect_to redirect_object(reaction.reactive)
+    redirect_to [redirect_object(reaction.reactive).user, redirect_object(reaction.reactive)]
   end
 
   def destroy
     reaction.destroy
-    redirect_to redirect_object(reaction.reactive)
+    redirect_to [redirect_object(reaction.reactive).user, redirect_object(reaction.reactive)]
   end
 
   private

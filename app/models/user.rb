@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   pg_search_scope :search_by_name, against: :full_name
 
   attachment :avatar, type: :image
+  attachment :wallpaper, type: :image
 
   def followers
     User.where(id: Relationship.where(user_id: id).pluck(:follower_id))
