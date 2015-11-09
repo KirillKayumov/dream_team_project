@@ -14,7 +14,14 @@ class User
     end
 
     def account_update
-      default_params.permit(USER_PARAMS, :current_password, :remove_avatar, :remove_wallpaper)
+      default_params.permit(
+        USER_PARAMS,
+        :current_password,
+        :remove_avatar,
+        :remove_wallpaper,
+        :term_for_positive_reaction,
+        :term_for_negative_reaction
+      )
     end
   end
 end

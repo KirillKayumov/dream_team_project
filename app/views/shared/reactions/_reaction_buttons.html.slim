@@ -1,13 +1,13 @@
 - current_user_reaction = current_user.reaction_to(object)
 
-| likes:
+= "#{object.user.term_for_positive_reaction} :"
 = object.reactions.positive.count
 - if current_user_reaction.present? && current_user_reaction.positive?
   = link_to "Remove like", reaction_path(current_user_reaction), method: :delete
 - else
   = render "shared/reactions/reaction_form", object: object, positive: true
 
-| dislikes:
+= "#{object.user.term_for_negative_reaction} :"
 = object.reactions.negative.count
 - if current_user_reaction.present? && !current_user_reaction.positive?
   = link_to "Remove dislike", reaction_path(current_user_reaction), method: :delete

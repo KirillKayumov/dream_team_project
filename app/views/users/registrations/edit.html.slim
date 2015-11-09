@@ -23,6 +23,8 @@
         = f.input :remove_avatar, as: :boolean
         = f.input :wallpaper, as: :attachment
         = f.input :remove_wallpaper, as: :boolean
+        = f.input :term_for_positive_reaction, label: "Название для лайка"
+        = f.input :term_for_negative_reaction, label: "Название для дизлайка"
 
       .form-actions
         = f.button :submit, "Update"
