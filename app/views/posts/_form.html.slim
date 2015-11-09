@@ -1,3 +1,4 @@
 = simple_form_for post do |f|
   = f.input :text
+  = f.input :attached_images_files, as: :attachment, multiple: true
   = f.submit "Post!"

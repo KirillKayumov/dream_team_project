@@ -8,7 +8,12 @@ article
 
   = render "shared/reactions/reaction_buttons", object: post
 
+  - post.attached_images.each do |image|
+    p
+      = image_tag(attachment_url(image, :file, :fill, 300, 300))
+
 section
+  h1 Comments
   = simple_form_for [post, comment] do |f|
     = f.input :text
     = f.submit "Send"
