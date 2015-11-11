@@ -1,0 +1,9 @@
+= form_for User.new, url: session_path(:user) do |f|
+  .form-inputs
+    = f.email_field :email, required: true, autofocus: true, placeholder: "Email"
+    = f.password_field :password, required: true, placeholder: "Password"
+    = f.check_box :remember_me
+    = f.label :remember_me, "Remember me"
+
+  .form-actions
+    = f.submit "Sign in", class: "button small"
