@@ -17,22 +17,6 @@
   display: block;
 }
 
-.stream {
-  position: relative;
-
-  &:before {
-    content: '';
-    width: 2px;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    background: white;
-    position: absolute;
-    display: block;
-    margin-left: -1px;
-  }
-}
-
 .cell_wrapper {
   display: block;
   position: relative;

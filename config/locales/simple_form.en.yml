@@ -21,4 +21,10 @@ en:
       user:
         password: Leave it blank if you dont want to change it
         current_password: We need your current password to confirm your changes
-
+    placeholders:
+      user:
+        full_name: Your name
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        avatar: Avatar

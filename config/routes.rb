@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "feed#index"
+  devise_for :users, controllers: {
+    registrations: "registrations",
+    sessions: "sessions"
+  }
+  root to: "pages#home"
 
   resources :users, only: [:show, :index] do
     resources :posts, only: [:show]
@@ -11,4 +14,5 @@ Rails.application.routes.draw do
   resource :relationship, only: [:create, :destroy]
   resources :reactions, only: [:create, :destroy]
   resource :search, only: [:show]
+  resource :feed, only: [:show]
 end

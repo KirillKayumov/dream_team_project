@@ -1,0 +1,13 @@
+.logo {
+  font-size: 36px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 2px solid white;
+  color: white;
+  width: 370px;
+
+  &:hover, &:active, &:visited {
+    color: white;
+  }
+}

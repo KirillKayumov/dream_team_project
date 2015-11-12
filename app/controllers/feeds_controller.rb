@@ -1,6 +1,6 @@
-class FeedController < ApplicationController
+class FeedsController < ApplicationController
   expose(:posts) { Post.where(user: current_user.following).ordered }
 
-  def index
+  def show
   end
 end

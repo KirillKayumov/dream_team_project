@@ -1,0 +1,15 @@
+.timeline {
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 2px;;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    background: white;
+    position: absolute;
+    display: block;
+    margin-left: -1px;
+  }
+}

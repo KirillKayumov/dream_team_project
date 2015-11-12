@@ -10,6 +10,7 @@
 #= require refile
 #= require current_user
 #= require skim
+#= require fragments
 #= require_tree ../templates
 #= require_tree .
 

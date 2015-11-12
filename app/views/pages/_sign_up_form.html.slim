@@ -1,0 +1,14 @@
+= simple_form_for user,
+  url: registration_path(:user),
+  data: { "remote" => true, "behavior" => "fragments", "fragment-id" => "sign_up_form" } do |f|
+
+  .form-inputs
+    = f.input :full_name, required: true, label: false
+    = f.input :email, required: true, label: false
+    = f.input :password, required: true, label: false, hint: false
+    = f.input :password_confirmation, required: true, label: false, hint: false
+    = f.input :avatar, as: :attachment
+    = f.input :wallpaper, as: :attachment
+
+  .form-actions
+    = f.button :submit, "Sign up", class: "button small"
