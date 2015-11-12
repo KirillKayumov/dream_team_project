@@ -1,0 +1,27 @@
+.navigation {
+  text-align: center;
+
+  a {
+    color: white;
+    margin: 20px 40px;
+    display: inline-block;
+    line-height: 33px;
+
+    &:active, &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: #ccc;
+      transition: 0.3s;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .left_half {
+    text-align: right;
+  }
+}

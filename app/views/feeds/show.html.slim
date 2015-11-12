@@ -1,1 +1,15 @@
-= render posts
+.row.navigation
+  = form_tag search_path, method: :get, class: "search_form" do
+    = text_field_tag :q, "", placeholder: "Search posts or users"
+    = submit_tag "Search", class: "button tiny secondary"
+  = link_to "Feed", root_path
+  = link_to "Write a post", new_post_path
+  = link_to "My blog", user_path(current_user)
+  = link_to "Settings", edit_user_registration_path
+  = link_to "Sign out", destroy_user_session_path
+
+.row.timeline
+  - posts.each do |post|
+    .small-6.cell_wrapper
+      .cell
+        = render post
