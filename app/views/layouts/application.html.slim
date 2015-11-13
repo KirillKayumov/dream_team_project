@@ -19,7 +19,7 @@ html class="no-js" lang="en"
     == analytics_init if GA.tracker
 
   = body_tag do
-    / = render "navigation" if user_signed_in?
+    = render "navigation" if user_signed_in?
     / = render "messages"
 
     = yield

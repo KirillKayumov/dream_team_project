@@ -1,5 +1,16 @@
-article
-  section
-    = link_to post.text, user_post_path(post.user, post)
-  footer
-    = post.created_at
+- first_image = post.attached_images.first
+.post
+  = attachment_image_tag(first_image, :file, :fill, 420, 300) if first_image.present?
+  .post-body
+    = truncate(post.text, length: 300, separator: " ") do
+      p
+        a href = user_post_path(post.user, post)
+          | Continue reading &#8594;
+
+  .post-meta
+    = post.user.full_name
+    '
+    ' |
+    = l(post.created_at, format: :long_date)
+    .post-link
+      = link_to "Go to post", [post.user, post]

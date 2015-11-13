@@ -1,0 +1,25 @@
+.post-meta {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.post-link {
+  float: right;
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.post-body {
+  margin-top: 20px;
+  text-indent: 20px;
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p:last-child {
+    text-indent: 0;
+  }
+}

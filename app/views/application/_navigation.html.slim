@@ -1,19 +1,9 @@
-nav.top-bar( data-topbar )
-  section.top-bar-section
-    ul.right
-      li.has-form
-        = form_tag search_path, method: :get do
-          .row
-            .columns.small-9
-              = text_field_tag :q
-            .columns.small-3
-              = submit_tag "Search"
-      = active_link_to "Write a post", new_post_path, wrap_tag: :li
-      = active_link_to "My blog", user_path(current_user), wrap_tag: :li
-      li
-        a href = edit_user_registration_path
-          | Edit profile
-      li
-        a href = destroy_user_session_path
-          | Sign out
-
+.row.navigation
+  = form_tag search_path, method: :get, class: "search_form" do
+    = text_field_tag :q, "", placeholder: "Search posts or users"
+    = submit_tag "Search", class: "button tiny secondary"
+  = link_to "Feed", root_path
+  = link_to "Write a post", new_post_path
+  = link_to "My blog", user_path(current_user)
+  = link_to "Settings", edit_user_registration_path
+  = link_to "Sign out", destroy_user_session_path
