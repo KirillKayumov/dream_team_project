@@ -8,4 +8,6 @@
       = comment.text
     .comment-meta
       = l(comment.created_at, format: :detailed)
+      - if policy(comment).destroy?
+        = link_to "Delete", [post, comment], class: "control_link", method: :delete, data: { confirm: "Are you sure?" }
       = render "reactions/reactions", resource: comment

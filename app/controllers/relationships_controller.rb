@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:user_id])
 
     if user.add_follower(current_user)
-      redirect_to users_path
+      redirect_to user
     else
       redirect_to :back
     end
@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:user_id])
 
     if user.remove_follower(current_user)
-      redirect_to users_path
+      redirect_to user
     else
       redirect_to :back
     end

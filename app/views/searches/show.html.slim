@@ -1,4 +1,13 @@
-h1 Users
-= render users
-h1 Posts
-= render posts
+.row.timeline
+  - users.each do |user|
+    .small-12.columns.cell_wrapper
+      .cell
+        = render "user", user: user
+  - posts.each do |post|
+    .small-12.columns.cell_wrapper
+      .cell
+        = render post
+
+  .no_results
+    - if users.empty? && posts.empty?
+      | Nothing found :(

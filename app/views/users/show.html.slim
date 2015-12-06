@@ -1,1 +1,7 @@
+- unless current_user == user
+  .follow
+    - if current_user.follower_of?(user)
+      = link_to "Unfollow", relationship_path(user_id: user), class: "follow_link", method: :delete
+    - else
+      = link_to "Follow", relationship_path(user_id: user), class: "follow_link", method: :post
 = render template: "feeds/show", posts: posts

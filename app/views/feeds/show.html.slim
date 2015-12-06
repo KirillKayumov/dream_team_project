@@ -3,3 +3,7 @@
     .small-12.columns.cell_wrapper
       .cell
         = render post
+
+  .no_results
+    - if posts.empty?
+      | Use search to find users and posts, e.g. Awesome post

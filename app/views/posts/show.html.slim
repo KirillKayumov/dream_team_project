@@ -10,6 +10,10 @@
             = link_to post.user.full_name, post.user
           span.post-timestamp = l(post.created_at, format: :detailed)
           span.post-comments_count = "#{post.comments.count} comments"
+          - if policy(post).edit?
+            = link_to "Edit", edit_post_path(post), class: "control_link"
+          - if policy(post).destroy?
+            = link_to "Destroy", post, class: "control_link", method: :delete, data: { confirm: "Are you sure?" }
         .post-body
           - post.text.split("\n").each do |paragraph|
             p = paragraph

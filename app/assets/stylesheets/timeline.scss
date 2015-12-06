@@ -14,3 +14,25 @@
     margin-left: -1px;
   }
 }
+
+.follow_link {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  text-align: center;
+  border-bottom: 2px solid white;
+  color: white;
+
+  &:active, &:visited {
+    color: white;
+  }
+
+  &:hover {
+    color: #ccc;
+    transition: 0.3s;
+  }
+}
+
+.no_results {
+  color: white;
+}

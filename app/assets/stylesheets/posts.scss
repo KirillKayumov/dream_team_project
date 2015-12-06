@@ -55,3 +55,12 @@
     @include with-delimeter;
   }
 }
+
+.control_link {
+  color: #aaa;
+
+  &:before {
+    content: '|';
+    margin: 0 5px;
+  }
+}
