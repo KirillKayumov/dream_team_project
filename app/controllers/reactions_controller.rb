@@ -11,12 +11,12 @@ class ReactionsController < ApplicationController
       reaction.save!
     end
 
-    redirect_to [redirect_object(reaction.reactive).user, redirect_object(reaction.reactive)]
+    render_fragments
   end
 
   def destroy
     reaction.destroy
-    redirect_to [redirect_object(reaction.reactive).user, redirect_object(reaction.reactive)]
+    render_fragments
   end
 
   private
@@ -27,5 +27,9 @@ class ReactionsController < ApplicationController
 
   def redirect_object(reactive)
     reactive.is_a?(Post) ? reactive : reactive.post
+  end
+
+  def render_fragments
+    render partial: "reactions/reactions", locals: { resource: reaction.reactive }
   end
 end

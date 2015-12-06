@@ -11,7 +11,16 @@
 #= require current_user
 #= require skim
 #= require fragments
+#= require jquery.slick
 #= require_tree ../templates
 #= require_tree .
 
 $(document).foundation()
+
+$ ->
+  $("[data-images]").slick(
+    dots: true
+    adaptiveHeight: true
+  )
+
+  $(".sign_up_form").signUpForm()

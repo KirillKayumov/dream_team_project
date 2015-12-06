@@ -4,23 +4,4 @@ article
   = comment.created_at
   = link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }
 
-  | likes:
-  = comment.reactions.positive.count
-  - if current_user.reaction_to(comment).present? && current_user.reaction_to(comment).positive?
-    = link_to "Remove like", reaction_path(current_user.reaction_to(comment)), method: :delete
-  - else
-    = simple_form_for Reaction.new do |f|
-      = f.input :reactive_type, as: :hidden, input_html: { value: "Comment" }
-      = f.input :reactive_id, as: :hidden, input_html: { value: comment.id }
-      = f.input :positive, as: :hidden, input_html: { value: true }
-      = f.submit "Like"
-  | dislikes:
-  = comment.reactions.negative.count
-  - if current_user.reaction_to(comment).present? && !current_user.reaction_to(comment).positive?
-    = link_to "Remove dislike", reaction_path(current_user.reaction_to(comment)), method: :delete
-  - else
-    = simple_form_for Reaction.new do |f|
-      = f.input :reactive_type, as: :hidden, input_html: { value: "Comment" }
-      = f.input :reactive_id, as: :hidden, input_html: { value: comment.id }
-      = f.input :positive, as: :hidden, input_html: { value: false }
-      = f.submit "Dislike"
+  = render "reactions/reactions", resource: comment

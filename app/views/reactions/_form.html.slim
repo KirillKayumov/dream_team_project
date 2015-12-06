@@ -1,0 +1,5 @@
+= simple_form_for Reaction.new, remote: true, html: { "data-behavior" => "fragments" } do |f|
+  = f.input :reactive_type, as: :hidden, input_html: { value: resource.class.name }
+  = f.input :reactive_id, as: :hidden, input_html: { value: resource.id }
+  = f.input :positive, as: :hidden, input_html: { value: value }
+  = f.submit "#{term} #{count}", class: "button tiny"

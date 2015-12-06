@@ -1,3 +1,10 @@
+@mixin with-delimeter {
+  &:after {
+    content: "|";
+    margin: 0 5px;
+  }
+}
+
 .post-meta {
   color: #aaa;
   font-size: 12px;
@@ -6,20 +13,41 @@
 .post-link {
   float: right;
 
-  a:hover {
+  &:hover {
     text-decoration: underline;
   }
 }
 
 .post-body {
   margin-top: 20px;
-  text-indent: 20px;
+
+  p {
+    text-indent: 20px;
+  }
 
   a:hover {
     text-decoration: underline;
   }
+}
 
-  p:last-child {
-    text-indent: 0;
+.post-user_name {
+  @include with-delimeter;
+}
+
+.post-user_avatar {
+  position: absolute;
+  top: 0;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+}
+
+.post--full {
+  .post-timestamp {
+    @include with-delimeter;
   }
 }

@@ -1,16 +1,16 @@
 - first_image = post.attached_images.first
 .post
+  .post-user_avatar
+    = attachment_image_tag(post.user, :avatar, :fill, 50, 50) if post.user.avatar.present?
   = attachment_image_tag(first_image, :file, :fill, 420, 300) if first_image.present?
   .post-body
-    = truncate(post.text, length: 300, separator: " ") do
-      p
-        a href = user_post_path(post.user, post)
-          | Continue reading &#8594;
+    p
+      = truncate(post.text, length: 300, separator: " ") do
+        div
+          a href = user_post_path(post.user, post)
+            | Continue reading &#8594;
 
   .post-meta
-    = post.user.full_name
-    '
-    ' |
-    = l(post.created_at, format: :long_date)
-    .post-link
-      = link_to "Go to post", [post.user, post]
+    span.post-user_name = post.user.full_name
+    span.post-timestamp = l(post.created_at, format: :long_date)
+    = link_to "Go to post", [post.user, post], class: "post-link"

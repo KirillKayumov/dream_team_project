@@ -1,0 +1,17 @@
+.slick-prev {
+  left: -20px;
+
+  &:before {
+    color: #222;
+    opacity: 1;
+  }
+}
+
+.slick-next {
+  right: -20px;
+
+  &:before {
+    color: #222;
+    opacity: 1;
+  }
+}

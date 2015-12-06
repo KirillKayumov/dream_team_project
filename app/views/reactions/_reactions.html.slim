@@ -1,0 +1,5 @@
+.reactions data-fragment-id="#{resource.class.name.underscore}-#{resource.id}-reactions"
+  .reaction
+    = reaction_tag(true, resource)
+  .reaction
+    = reaction_tag(false, resource)

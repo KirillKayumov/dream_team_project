@@ -1,0 +1,32 @@
+.reactions {
+  .button {
+    margin-bottom: 0;
+    outline: none;
+  }
+
+  .reaction {
+    display: inline-block;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  i {
+    margin-right: 5px;
+  }
+}
+
+.reaction--positive {
+  margin-right: 10px;
+
+  span {
+    margin-right: 5px;
+  }
+}
+
+.reaction--negative {
+  span {
+    margin-right: 5px;
+  }
+}

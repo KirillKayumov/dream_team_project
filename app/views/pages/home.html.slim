@@ -1,13 +1,13 @@
 = link_to "Dream Team Project", root_path, class: "logo"
 
 .row.timeline
-  .small-6.cell_wrapper
+  .small-12.columns.cell_wrapper
     .cell
       h3 Sign in
       = flash_message(:alert, "Invalid email or password.")
       = render "sign_in_form"
 
-  .small-6.cell_wrapper
+  .small-12.columns.cell_wrapper
     .cell
       h3 Sign up
       = render "sign_up_form", user: user

@@ -43,6 +43,7 @@ gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem "refile-s3"
 gem "fragments.js", github: "fs/fragments.js"
+gem "jquery-slick-rails"
 
 group :staging, :production do
   gem "newrelic_rpm"
@@ -80,6 +81,7 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "scss_lint", require: false
   gem "slim_lint", require: false
+  gem "railroady"
 end
 
 group :development do
