@@ -7,4 +7,10 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
   end
+
+  protected
+
+  def after_update_path_for(_)
+    edit_user_registration_path
+  end
 end
