@@ -1,0 +1,29 @@
+.comments {
+  margin-top: 50px;
+}
+
+.comment {
+  margin-top: 20px;
+}
+
+.comment-avatar {
+  display: inline-block;
+  vertical-align: top;
+  width: 70px;
+  height: 70px;
+}
+
+.comment-content {
+  display: inline-block;
+  width: 90%;
+}
+
+.comment-meta {
+  color: #aaa;
+  font-size: 12px;
+
+  .reactions {
+    float: right;
+  }
+}
+

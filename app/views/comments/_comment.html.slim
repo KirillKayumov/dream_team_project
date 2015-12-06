@@ -1,7 +1,11 @@
-article
-  = comment.text
-  = comment.user.full_name
-  = comment.created_at
-  = link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }
-
-  = render "reactions/reactions", resource: comment
+.comment
+  .comment-avatar
+    = attachment_image_tag(comment.user, :avatar, :fill, 70, 70)
+  .comment-content
+    .comment-user_name
+      = link_to comment.user.full_name, comment.user
+    .comment-text
+      = comment.text
+    .comment-meta
+      = l(comment.created_at, format: :detailed)
+      = render "reactions/reactions", resource: comment
