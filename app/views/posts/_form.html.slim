@@ -1,4 +1,4 @@
 = simple_form_for post do |f|
-  = f.input :text
+  = f.input :text, label: false, placeholder: "Write an awesome post...", input_html: { rows: 6 }
   = f.input :attached_images_files, as: :attachment, multiple: true
-  = f.submit "Post!"
+  = f.submit "Post", class: "button small"
