@@ -11,6 +11,7 @@
             | Continue reading &#8594;
 
   .post-meta
-    span.post-user_name = post.user.full_name
+    span.post-user_name
+      = link_to post.user.full_name, post.user
     span.post-timestamp = l(post.created_at, format: :long_date)
     = link_to "Go to post", [post.user, post], class: "post-link"

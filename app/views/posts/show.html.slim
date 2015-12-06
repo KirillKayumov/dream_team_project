@@ -6,7 +6,8 @@
           - post.attached_images.each do |image|
             = image_tag(image.file_url)
         .post-meta
-          span.post-user_name = post.user.full_name
+          span.post-user_name
+            = link_to post.user.full_name, post.user
           span.post-timestamp = l(post.created_at, format: :detailed)
           span.post-comments_count = "#{post.comments.count} comments"
         .post-body

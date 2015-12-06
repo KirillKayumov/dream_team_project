@@ -32,6 +32,10 @@
 
 .post-user_name {
   @include with-delimeter;
+
+  a {
+    color: #aaa;
+  }
 }
 
 .post-user_avatar {
